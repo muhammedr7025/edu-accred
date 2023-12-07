@@ -128,7 +128,7 @@ const Student = () => {
           <tbody className="font-sans ">
             {tableData.map((row, index) => (
               <tr key={row.id} className={getRowColor(index)}>
-                <td className="px-4 py-2 font-light text-[20px]  ">{row.id}</td>
+                <td className="px-4 py-2 font-light text-[20px]">{row.id}</td>
                 <td className="px-4 py-2 font-light text-[20px]">{row.name}</td>
                 <td className="px-4 py-2 font-light text-[20px]">{row.phone}</td>
                 <td className="px-4 py-2 font-light text-[20px]" >{row.department}</td>
