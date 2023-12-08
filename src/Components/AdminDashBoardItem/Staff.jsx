@@ -1,6 +1,12 @@
+  import { useState } from 'react';
   import { BsSearch } from 'react-icons/bs';
-  const Staff = () => {
-
+  import AdminEditStaff from '../../Components/AdminStaffPop/AdminEdittStaff'
+  import AdminCreateStaff from '../../Components/AdminStaffPop/AdminCreateStaff'
+  const Staff = () => { 
+    const [EditStaffPopBtn ,setEditStaffPopBtn] = useState(false);
+    const [AddStaffPopBtn ,setAddStaffPopBtn] = useState(false);
+    
+    
     const tableData = [
       { id: 1, name: 'A', department: 'CSE', role: 'HOD', email: 'gmail' },
       { id: 2, name: 'S', department: 'CSE', role: 'Asst. Professor', email: 'gmail' },
@@ -16,8 +22,9 @@
       return index % 2 === 0 ? 'bg-text-hover-bg' : '';
     }; 
     const handleEdit = (row) => {
-      // Add your edit logic here
       console.log(`Editing row with ID ${row.id}`);
+      // Set EditStaffPopBtn to true to display the edit popup
+      setEditStaffPopBtn(true);
     };
 
     // Function to handle delete action
@@ -25,8 +32,17 @@
       // Add your delete logic here
       console.log(`Deleting row with ID ${row.id}`);
     };
-    return (
+    return ( 
+      
       <div className="p-7 text-2xl text-black bg-blue-100 w-[1240px] font-semibold ">
+        <div className='fixed top-10 left-[70rem] z-[2]'>
+         { EditStaffPopBtn &&           <button onClick={() => setEditStaffPopBtn(false)} className='cursor-pointer'>X</button>
+}
+        </div> 
+        <div className='fixed top-10 left-[70rem] z-[2]'>
+         { AddStaffPopBtn &&   <button onClick={() => setAddStaffPopBtn(false)} className='cursor-pointer'>X</button>
+}
+        </div>
         <div className="bg-dashboard-light-100 h-screen">
           <div className="p-5 gap-10 grid grid-cols-1 md:grid-cols-2">
             {/* First Set of Elements */}
@@ -100,15 +116,15 @@
             <input
               type="search"
               placeholder="Search"
-              className={`text-base bg-transparent    w-[12rem] text-grey focus:outline-none ${!open && 'hidden'}`}
+              className={`text-base bg-transparent w-[12rem] text-grey focus:outline-none ${!open && 'hidden'}`}
             />
           </div>
           <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
               Search
           </div>
-          <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
+          <button onClick={() => setAddStaffPopBtn(true)} className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
               Add
-          </div>
+          </button>
               </div> 
               
           </div>
@@ -133,7 +149,7 @@
               <td className="px-4 py-2 font-light text-[20px]" >{row.role}</td>
               <td className="px-4 py-2 font-light text-[20px]">{row.email}</td>
               <td className="px-4 py-2 flex gap-6 ">
-                <button className="mr-2" onClick={() => handleEdit(row)}>
+                <button className="mr-2" onClick={() => {handleEdit(row)}}>
                   <i className="fa-solid fa-pencil text-blue-500"></i> {/* Edit Icon */}
                 </button>
                 <button onClick={() => handleDelete(row)}>
@@ -145,7 +161,8 @@
         </tbody>
       </table>
 
-
+      {EditStaffPopBtn && <AdminEditStaff></AdminEditStaff>} 
+      {AddStaffPopBtn && <AdminCreateStaff></AdminCreateStaff>} 
 
           {/* Additional Set of Elements */}
           <div className="p-5 gap-10 flex flex-col md:flex-row">
