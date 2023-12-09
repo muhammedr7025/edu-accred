@@ -46,7 +46,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="hidden md:flex">
+    <div className=" md:flex">
       <div className={containerClass}>
         <AiOutlineArrowLeft
           onClick={() => {
