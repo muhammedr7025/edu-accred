@@ -33,12 +33,12 @@ const Student = () => {
         console.log(`Deleting row with ID ${row.id}`);
       };
       return (
-        <div className="p-7 text-2xl text-black bg-blue-100 w-[1240px] font-semibold ">
-          <div className='fixed top-10 left-[70rem] z-[2]'>
+        <div className="p-7 text-2xl text-black bg-blue-100 w-full font-semibold ">
+          <div className='fixed top-10 left-[65rem] z-[2]'>
          { EditStudentPopBtn &&           <button onClick={() => setEditStudentPopBtn(false)} className='cursor-pointer'>X</button>
 }
         </div> 
-        <div className='fixed top-10 left-[70rem] z-[2]'>
+        <div className='fixed top-10 left-[65rem] z-[2]'>
          { AddStudentPopBtn &&   <button onClick={() => setAddStudentPopBtn(false)} className='cursor-pointer'>X</button>
 }
         </div>

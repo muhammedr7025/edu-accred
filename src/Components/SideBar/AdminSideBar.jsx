@@ -46,13 +46,13 @@ const SideBar = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="hidden md:flex">
       <div className={containerClass}>
         <AiOutlineArrowLeft
           onClick={() => {
             setOpen(!open);
           }}
-          className={`sm : block bg-white text-dark-purple text-3xl rounded-full absolute md : hidden -right-3 top-9 border border-dark-purple cursor-pointer ${!open && 'rotate-180'}`}
+          className={`sm :  bg-white text-dark-purple text-3xl rounded-full absolute md : hidden -right-3 top-9 border border-dark-purple cursor-pointer ${!open && 'rotate-180'}`}
         ></AiOutlineArrowLeft>
         <div></div>
         <ul className="pb-3 pt-3 ">

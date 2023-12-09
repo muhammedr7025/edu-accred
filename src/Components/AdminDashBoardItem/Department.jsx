@@ -33,19 +33,19 @@ const Department = () => {
     console.log(`Deleting row with ID ${row.id}`);
   };
   return (
-    <div className="p-7 text-2xl text-black bg-blue-100 w-[1240px] font-semibold ">
+    <div className="p-7 text-2xl text-black bg-blue-100 w-full font-semibold ">
       <div className="bg-dashboard-light-100 h-screen">
         <div className="p-5 gap-10 grid grid-cols-1 md:grid-cols-2">
         
 
           
         </div>
-        <div className=" flex bg-white w-full h-[60px] mb-2 rounded-lg shadow-lg items-center justify-between">
-        <div className='fixed top-[9rem] left-[70rem] z-[2]'>
+        <div className=" flex bg-white w-full h-[70px] mb-2 rounded-lg shadow-lg items-center justify-between">
+        <div className='fixed top-[6rem] left-[65rem] z-[2]'>
          { EditDeptPopBtn &&           <button onClick={() => setEditDeptPopBtn(false)} className='cursor-pointer'>X</button>
 }
         </div> 
-        <div className='fixed top-[9rem] left-[70rem] z-[2]'>
+        <div className='fixed top-[6rem] left-[65rem] z-[2]'>
          { AddDeptPopBtn &&   <button onClick={() => setAddDeptPopBtn(false)} className='cursor-pointer'>X</button>
 }
         </div>
