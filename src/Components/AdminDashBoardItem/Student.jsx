@@ -1,6 +1,11 @@
 import { BsSearch } from 'react-icons/bs';  
+import { useState } from 'react';
+import AdminCreateStudent from '../PopUpView/AdminPop/AdminStudentPop/AdminCreateStudent';
+import AdminEditStudent from '../PopUpView/AdminPop/AdminStudentPop/AdminEditStudent';
+const Student = () => { 
 
-const Student = () => {
+  const [EditStudentPopBtn ,setEditStudentPopBtn] = useState(false);
+  const [AddStudentPopBtn ,setAddStudentPopBtn] = useState(false);
     const tableData = [
         { id: 1, name: 'A', phone: '123456789', department: 'CSE',  batch: '2020' },
         { id: 2, name: 'S', phone: '123456789', department: 'CSE', batch: '2020' },
@@ -18,6 +23,8 @@ const Student = () => {
       const handleEdit = (row) => {
         // Add your edit logic here
         console.log(`Editing row with ID ${row.id}`);
+        setEditStudentPopBtn(true);
+        
       };
     
       // Function to handle delete action
@@ -27,6 +34,14 @@ const Student = () => {
       };
       return (
         <div className="p-7 text-2xl text-black bg-blue-100 w-[1240px] font-semibold ">
+          <div className='fixed top-10 left-[70rem] z-[2]'>
+         { EditStudentPopBtn &&           <button onClick={() => setEditStudentPopBtn(false)} className='cursor-pointer'>X</button>
+}
+        </div> 
+        <div className='fixed top-10 left-[70rem] z-[2]'>
+         { AddStudentPopBtn &&   <button onClick={() => setAddStudentPopBtn(false)} className='cursor-pointer'>X</button>
+}
+        </div>
           <div className="bg-dashboard-light-100 h-screen">
             <div className="p-5 gap-10 grid grid-cols-1 md:grid-cols-2">
               {/* First Set of Elements */}
@@ -106,9 +121,9 @@ const Student = () => {
             <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
                 Search
             </div>
-            <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
-                Add
-            </div>
+            <button onClick={() => setAddStudentPopBtn(true)} className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
+              Add
+          </button>
                 </div> 
                 
             </div>
@@ -144,42 +159,13 @@ const Student = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> 
+        {EditStudentPopBtn && <AdminEditStudent></AdminEditStudent>} 
+    {AddStudentPopBtn && <AdminCreateStudent></AdminCreateStudent>}
     
     
     
-            {/* Additional Set of Elements */}
-            <div className="p-5 gap-10 flex flex-col md:flex-row">
-              {/* Fifth Set of Elements */}
-              <div className="w-full md:w-[40rem] h-[20rem] bg-white rounded-md shadow-lg flex flex-col justify-center items-center">
-                <div className="flex justify-between px-4 py-2 w-full">
-                  <div className="flex flex-col">
-                    <div className="text-[grey] text-xl">T</div>
-                    <div></div>
-                  </div>
-                  <div className="flex  py-[10px]">
-                    <div className="w-[13.5rem] md:w-[13.5rem] h-[18rem] bg-light-blue rounded-lg flex text-center text-white justify-center items-center">
-                      {/* Your content goes here */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-    
-              {/* Sixth Set of Elements */}
-              <div className="w-full md:w-[30rem] h-[20rem] bg-white rounded-md shadow-lg flex flex-col justify-center items-center">
-                <div className="flex justify-between px-4 py-2 w-full">
-                  <div className="flex flex-col">
-                    <div className="text-[grey] text-xl"></div>
-                    <div></div>
-                  </div>
-                  <div className="flex">
-                    <div className="w-[13.5rem] md:w-[13.5rem] h-[18rem] bg-light-blue rounded-lg flex text-center text-white justify-center items-center">
-                      {/* Your content goes here */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       );

@@ -1,7 +1,7 @@
   import { useState } from 'react';
   import { BsSearch } from 'react-icons/bs';
-  import AdminEditStaff from '../../Components/AdminStaffPop/AdminEdittStaff'
-  import AdminCreateStaff from '../../Components/AdminStaffPop/AdminCreateStaff'
+  import AdminEditStaff from '../../Components/PopUpView/AdminPop/AdminStaffPop/AdminEdittStaff'
+  import AdminCreateStaff from '../../Components/PopUpView/AdminPop/AdminStaffPop/AdminCreateStaff'
   const Staff = () => { 
     const [EditStaffPopBtn ,setEditStaffPopBtn] = useState(false);
     const [AddStaffPopBtn ,setAddStaffPopBtn] = useState(false);

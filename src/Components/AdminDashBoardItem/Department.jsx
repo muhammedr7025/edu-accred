@@ -1,5 +1,12 @@
 import { BsSearch } from 'react-icons/bs';
+import { useState } from 'react';
+import AdminCreateDept from '../PopUpView/AdminPop/AdminDeparmentPop/AdminCreateDept';
+import AdminEditDept from '../PopUpView/AdminPop/AdminDeparmentPop/AdminEditDept';
 const Department = () => {
+
+  const [EditDeptPopBtn ,setEditDeptPopBtn] = useState(false);
+    const [AddDeptPopBtn ,setAddDeptPopBtn] = useState(false);
+    
   const tableData = [
     { id: 1, department: 'CSE', hod: 'A',  },
     { id: 2, department: 'CSE', hod: 'S', },
@@ -17,6 +24,7 @@ const Department = () => {
   const handleEdit = (row) => {
     // Add your edit logic here
     console.log(`Editing row with ID ${row.id}`);
+    setEditDeptPopBtn(true);
   };
 
   // Function to handle delete action
@@ -33,6 +41,14 @@ const Department = () => {
           
         </div>
         <div className=" flex bg-white w-full h-[60px] mb-2 rounded-lg shadow-lg items-center justify-between">
+        <div className='fixed top-[9rem] left-[70rem] z-[2]'>
+         { EditDeptPopBtn &&           <button onClick={() => setEditDeptPopBtn(false)} className='cursor-pointer'>X</button>
+}
+        </div> 
+        <div className='fixed top-[9rem] left-[70rem] z-[2]'>
+         { AddDeptPopBtn &&   <button onClick={() => setAddDeptPopBtn(false)} className='cursor-pointer'>X</button>
+}
+        </div>
               <div className='flex w-[12.5rem] pl-2 gap-3 '>
               <div className=" border border-light-grey flex items-center rounded-md bg-light-white mt-1 px-2.5 py-2">
             <BsSearch className=" text-lg block float-left cursor-pointer mr-2.5"></BsSearch>
@@ -45,9 +61,9 @@ const Department = () => {
           <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
               Search
           </div>
-          <div className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
+          <button onClick={() => setAddDeptPopBtn(true)} className='bg-text-hover-color W-[60px ]h-[40px] rounded-lg mt-1 text-center p-2 text-[20px] text-white font-normal'> 
               Add
-          </div>
+          </button>
               </div> 
               
           </div>
@@ -82,39 +98,10 @@ const Department = () => {
         ))}
       </tbody>
     </table>
+    {EditDeptPopBtn && <AdminEditDept></AdminEditDept>} 
+    {AddDeptPopBtn && <AdminCreateDept></AdminCreateDept>} 
 
-        {/* Additional Set of Elements */}
-        <div className="p-5 gap-10 flex flex-col md:flex-row">
-          {/* Fifth Set of Elements */}
-          <div className="w-full md:w-[40rem] h-[20rem] bg-white rounded-md shadow-lg flex flex-col justify-center items-center">
-            <div className="flex justify-between px-4 py-2 w-full">
-              <div className="flex flex-col">
-                <div className="text-[grey] text-xl">T</div>
-                <div></div>
-              </div>
-              <div className="flex  py-[10px]">
-                <div className="w-[13.5rem] md:w-[13.5rem] h-[18rem] bg-light-blue rounded-lg flex text-center text-white justify-center items-center">
-                  {/* Your content goes here */}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Sixth Set of Elements */}
-          <div className="w-full md:w-[30rem] h-[20rem] bg-white rounded-md shadow-lg flex flex-col justify-center items-center">
-            <div className="flex justify-between px-4 py-2 w-full">
-              <div className="flex flex-col">
-                <div className="text-[grey] text-xl"></div>
-                <div></div>
-              </div>
-              <div className="flex">
-                <div className="w-[13.5rem] md:w-[13.5rem] h-[18rem] bg-light-blue rounded-lg flex text-center text-white justify-center items-center">
-                  {/* Your content goes here */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
