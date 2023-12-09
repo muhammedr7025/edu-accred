@@ -164,38 +164,7 @@
       {EditStaffPopBtn && <AdminEditStaff></AdminEditStaff>} 
       {AddStaffPopBtn && <AdminCreateStaff></AdminCreateStaff>} 
 
-          {/* Additional Set of Elements */}
-          <div className="p-5 gap-10 flex flex-col md:flex-row">
-            {/* Fifth Set of Elements */}
-            <div className="w-full md:w-[40rem] h-[20rem] bg-white rounded-md shadow-lg flex flex-col justify-center items-center">
-              <div className="flex justify-between px-4 py-2 w-full">
-                <div className="flex flex-col">
-                  <div className="text-[grey] text-xl">T</div>
-                  <div></div>
-                </div>
-                <div className="flex  py-[10px]">
-                  <div className="w-[13.5rem] md:w-[13.5rem] h-[18rem] bg-light-blue rounded-lg flex text-center text-white justify-center items-center">
-                    {/* Your content goes here */}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sixth Set of Elements */}
-            <div className="w-full md:w-[30rem] h-[20rem] bg-white rounded-md shadow-lg flex flex-col justify-center items-center">
-              <div className="flex justify-between px-4 py-2 w-full">
-                <div className="flex flex-col">
-                  <div className="text-[grey] text-xl"></div>
-                  <div></div>
-                </div>
-                <div className="flex">
-                  <div className="w-[13.5rem] md:w-[13.5rem] h-[18rem] bg-light-blue rounded-lg flex text-center text-white justify-center items-center">
-                    {/* Your content goes here */}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     );
