@@ -9,7 +9,7 @@ import StudentDashboard from './Pages/StudentDashBoard';
 // import Subject  from './Components/StudentDashBoardItem/Subject';
 
 const App = () => {
-  const currentUser = false;
+  const currentUser = true;
 
   const ProtectedRoute = ({ element }) => {
     return currentUser ? element : <Navigate to="/login" />;
