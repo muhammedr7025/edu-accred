@@ -5,9 +5,11 @@ import Login from './Pages/Login';
 import Staff from './Components/AdminDashBoardItem/Staff';
 import Department from './Components/AdminDashBoardItem/Department';
 import Student from './Components/AdminDashBoardItem/Student';
+import StudentDashboard from './Pages/StudentDashBoard';
+// import Subject  from './Components/StudentDashBoardItem/Subject';
 
 const App = () => {
-  const currentUser = true;
+  const currentUser = false;
 
   const ProtectedRoute = ({ element }) => {
     return currentUser ? element : <Navigate to="/login" />;
@@ -18,19 +20,21 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          exact element={<ProtectedRoute element={<AdminDashboard />} />}
+          element={<ProtectedRoute element={<AdminDashboard />} />}
         >
           <Route path="/" element={<Staff />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/department" element={<Department />} />
           <Route path="/student" element={<Student />} />
-          
-        
-        </Route> 
+        </Route>
+
+        {/* New route for StudentDashboard */}
+        <Route path="/studentdashboard" element={<StudentDashboard />} >
+        {/* <Route path="/subject" element={<Subject />} /> */}
+        </Route>
+
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Login />} />
-                
-      
       </Routes>
     </Router>
   );

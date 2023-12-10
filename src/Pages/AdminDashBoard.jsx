@@ -1,7 +1,7 @@
 // AdminDashboard.jsx
 
 
-import NavBar from '../Components/NavBar';
+import NavBar from '../Components/NavBar/AdminNavBar';
 import SideBar from '../Components/SideBar/AdminSideBar';
 import { Outlet } from 'react-router-dom';
 // import Staff from './AdminDashBoardItem/Staff';

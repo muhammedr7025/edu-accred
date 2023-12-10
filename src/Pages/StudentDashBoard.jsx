@@ -1,13 +1,18 @@
 
+import NavBar from '../Components/NavBar/StudentNavBar';
 import SideBar from '../Components/SideBar/StudentSideBar'
-
+// import { Outlet } from 'react-router-dom';
+import Subject from '../Components/StudentDashBoardItem/Subject';
 const StudentDashBoard = () => {
   return (
-    <div className='flex'>
-      <SideBar></SideBar>
-      <div className='p-7 text-2xl text-black font-semibold'>HomePage</div>
-    </div>
-  )
+    <>
+      <NavBar />
+      <div className='flex'>
+        <SideBar />
+        <Subject></Subject>
+      </div>
+    </>
+  );
 }
 
 export default StudentDashBoard;  
