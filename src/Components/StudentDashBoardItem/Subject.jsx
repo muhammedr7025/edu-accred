@@ -50,7 +50,7 @@ const Subject = () => {
             <div className="flex justify-between px-4 py-2">
               <div className="flex flex-col my-3.5">
                 <div className="text-[grey] text-xl"></div>
-                <div className="text-text-hover-color">Create Staff</div>
+                <div className="text-text-hover-color">Subject</div>
               </div>
               <div className="flex  py-[10px]">
                 <div className="w-[2.5rem] md:w-[2.5rem] h-[2.5rem] bg-light-blue rounded-[25%] text-center py-[5%]">
@@ -66,7 +66,7 @@ const Subject = () => {
               <div className="flex flex-col my-3.5">
                 <div className="text-[grey] text-xl"></div>
                 <div className="text-text-hover-color">
-                  Enter Staff Details
+                  Attendence
                 </div>
               </div>
               <div className="flex  py-[10px]">
@@ -82,7 +82,7 @@ const Subject = () => {
             <div className="flex justify-between px-4 py-2">
               <div className="flex flex-col my-3.5">
                 <div className="text-[grey] text-xl"></div>
-                <div className="text-text-hover-color">UpDate Staff</div>
+                <div className="text-text-hover-color">Series 1 mark</div>
               </div>
               <div className="flex  py-[10px]">
                 <div className="w-[2.5rem] md:w-[2.5rem] h-[2.5rem] bg-light-blue rounded-[25%] text-center py-[5%]">
@@ -98,7 +98,37 @@ const Subject = () => {
               <div className="flex flex-col my-3.5">
                 <div className="text-[grey] text-xl"></div>
                 <div className="text-text-hover-color">
-                  Delete Staff
+                Series 2 mark
+                </div>
+              </div>
+              <div className="flex py-[10px]">
+                <div className="w-[2.5rem] md:w-[2.5rem] h-[2.5rem] bg-light-blue rounded-[25%] text-center py-[5%]">
+                  -{`>`}
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div className=" md:w-[25rem] h-[5rem] bg-white rounded-md shadow-lg   ">
+            <div className="flex justify-between px-4 py-2">
+              <div className="flex flex-col my-3.5">
+                <div className="text-[grey] text-xl"></div>
+                <div className="text-text-hover-color">
+                Assignment 1 mark 
+                </div>
+              </div>
+              <div className="flex py-[10px]">
+                <div className="w-[2.5rem] md:w-[2.5rem] h-[2.5rem] bg-light-blue rounded-[25%] text-center py-[5%]">
+                  -{`>`}
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div className=" md:w-[25rem] h-[5rem] bg-white rounded-md shadow-lg   ">
+            <div className="flex justify-between px-4 py-2">
+              <div className="flex flex-col my-3.5">
+                <div className="text-[grey] text-xl"></div>
+                <div className="text-text-hover-color">
+                Assignment 2 mark
                 </div>
               </div>
               <div className="flex py-[10px]">

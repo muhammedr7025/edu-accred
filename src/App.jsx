@@ -17,7 +17,8 @@ const App = () => {
 
   return (
     <Router>
-      <Routes>
+      <Routes> 
+      <Route path="/login" element={<Login />} />
         <Route
           path="/"
           element={<ProtectedRoute element={<AdminDashboard />} />}
