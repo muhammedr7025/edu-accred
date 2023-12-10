@@ -5,11 +5,13 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  
 
   const handleLogin = () => {
     // Check username and password
     if (username === "admin" && password === "admin") {
-      // Navigate to the admin dashboard
+      // Navigate to the admin dashboard 
+      
       navigate("/");
     } else if (username === "student" && password === "student") {
       // Navigate to the student dashboard

@@ -5,7 +5,7 @@ import { TiGroupOutline } from "react-icons/ti";
 // import { FcDepartment } from "react-icons/fc";
 // import { FaPersonChalkboard } from "react-icons/fa6";
 // import { PiStudent } from "react-icons/pi";
-// import { IoIosLogOut } from "react-icons/io";
+import { IoIosLogOut } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -18,7 +18,7 @@ const SideBar = () => {
     // { title: 'department' },
     // { title: 'Staff advisor' },
     // { title: 'student' },
-    // { title: 'logout' },
+     { title: 'logout' },
   ];
 
   const Icons = [
@@ -26,7 +26,7 @@ const SideBar = () => {
     // <FcDepartment key='Department'/>,
     // <FaPersonChalkboard key="Staff Advisor" />,
     // <PiStudent key="student" />,
-    // <IoIosLogOut key="logout" />,
+    <IoIosLogOut key="logout" />,
     // <RiDashboardFill key="dashboard" />,
     // <RiDashboardFill key="dashboard" />,
     // <RiDashboardFill key="dashboard" />,
