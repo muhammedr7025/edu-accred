@@ -1,52 +1,115 @@
+import { useState, useEffect } from 'react';
 
-const AdminEdittStaff = () => { 
-  
+// eslint-disable-next-line react/prop-types
+const AdminEditStaff = ({ staffData, onEdit, onCancel }) => {
+  const [editedStaff, setEditedStaff] = useState({ ...staffData });
+
+  useEffect(() => {
+    setEditedStaff({ ...staffData });
+  }, [staffData]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedStaff((prevStaff) => ({ ...prevStaff, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onEdit(editedStaff);
+    onCancel();
+  };
+
+ 
   return (
-    <div className="fixed left-0 top-0 z-[1] w-[100%] h-[100%] flex items-center justify-center bg-[rgba(0,0,0,0.4)]">   
-      <div className="rounded-[10px] p-[2rem] bg-white w-[50rem]">
-        <form action=""> 
-          <div className="flex flex-col text-center gap-5"> 
-           Edit Staff 
-            <div className="flex flex-col text-left">
-              <label className="font-normal text-[20px] " htmlFor="SI.no">SI.no</label> 
-              <input placeholder="Enter Si .no" className="font-serif font-normal text-[20px] p-2 border border-black" name='SI.no' type="text" />
-            </div> 
-            <div className="flex flex-col text-left">
-              <label className="font-normal text-[20px] " htmlFor="Staff Name">Staff Name</label> 
-              <input placeholder="Enter Staff Name" className="font-serif font-normal text-[20px] p-2 border border-black" name='SI.no' type="text" />
-            </div>
-            <div className="flex flex-col text-left">
-              <label className="font-normal text-[20px] " htmlFor="Department">Department</label> 
-              <select className="font-serif font-normal text-[20px] p-2 border border-black" name='SI.no' type="text">
-                <option value="CSE">CSE</option>
-                <option value="ME">ME</option> 
-                <option value="CE">CE</option>  
-                <option value="EC">EC</option> 
-                <option value="EEE">EEE</option>  
-              </select>
-            </div>
-            <div className="flex flex-col text-left">
-              <label className="font-normal text-[20px] " htmlFor="Role">Role</label> 
-              <select className="font-serif font-normal text-[20px] p-2 border border-black" name='SI.no' type="text">
-                <option value="HOD">HOD</option>
-                <option value="Asst. Professor">Asst. Professor</option>
-              </select>
-            </div>
-            <div className="flex flex-col text-left">
-              <label className="font-normal text-[20px] " htmlFor="Email">Email</label> 
-              <input placeholder="Enter" className="font-serif font-normal text-[20px] p-2 border border-black" name='Email' type="text" />
-            </div> 
-            <div className="flex text-center justify-center rounded-lg">
-            <button className="  w-[100px] h-[50px] text-white bg-blue-500 flex rounded-lg items-center justify-center">
-            Submit
-          </button>
-            </div>
+    <div className="fixed inset-0 flex items-center justify-center z-10">
+      <div className="absolute inset-0 bg-gray-800 opacity-75" onClick={onCancel}></div>
+      <div className="z-20 bg-white p-8 rounded shadow-lg w-96">
+        <h2 className="text-2xl font-semibold mb-4">Edit Staff</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="siNumber" className="block text-sm font-medium text-gray-600">
+              SI Number:
+            </label>
+            <input
+              type="text"
+              id="siNumber"
+              name="siNumber"
+              value={editedStaff.siNumber} // Assuming 'siNumber' is a field in your data
+              readOnly
+              className="mt-1 p-2 border rounded w-full"
+            />
           </div>
-          
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-600">
+              Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={editedStaff.name}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="department" className="block text-sm font-medium text-gray-600">
+              Department:
+            </label>
+            <input
+              type="text"
+              id="department"
+              name="department"
+              value={editedStaff.department}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="role" className="block text-sm font-medium text-gray-600">
+              Role:
+            </label>
+            <input
+              type="text"
+              id="role"
+              name="role"
+              value={editedStaff.role}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+              Email:
+            </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={editedStaff.email}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full"
+            />
+          </div>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+            >
+              Update
+            </button>
+            <button
+              type="button"
+              onClick={onCancel}
+              className="ml-2 px-4 py-2 border border-gray-300 rounded text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100"
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     </div>  
   );
-}
+};
 
-export default AdminEdittStaff;
+export default AdminEditStaff;

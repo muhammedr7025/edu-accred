@@ -3,7 +3,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { RiDashboardFill } from 'react-icons/ri';
 import { TiGroupOutline } from "react-icons/ti";
 import { FcDepartment } from "react-icons/fc";
-import { FaPersonChalkboard } from "react-icons/fa6";
+// import { FaPersonChalkboard } from "react-icons/fa6";
 import { PiStudent } from "react-icons/pi";
 import { IoIosLogOut } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ const SideBar = () => {
   const Menus = [
     { title: 'staff' },
     { title: 'department' },
-    { title: 'Staff advisor' },
+    // { title: 'Staff advisor' },
     { title: 'student' },
     { title: 'logout' },
   ];
@@ -23,7 +23,7 @@ const SideBar = () => {
   const Icons = [
     <TiGroupOutline key='Staff'/>,
     <FcDepartment key='Department'/>,
-    <FaPersonChalkboard key="Staff Advisor" />,
+    // <FaPersonChalkboard key="Staff Advisor" />,
     <PiStudent key="student" />,
     <IoIosLogOut key="logout" />,
     <RiDashboardFill key="dashboard" />,

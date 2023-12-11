@@ -1,43 +1,91 @@
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from 'react';
 
+// eslint-disable-next-line react/prop-types
+const AdminEditDept = ({ deptData, onEdit, onCancel }) => {
+  const [editedDeptData, setEditedDeptData] = useState({
+    id: deptData.id,
+    department: deptData.department,
+    hod: deptData.hod,
+  });
 
-const AdminEditDept = () => {
+  useEffect(() => {
+    setEditedDeptData({
+      id: deptData.id,
+      department: deptData.department,
+      hod: deptData.hod,
+    });
+  }, [deptData]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedDeptData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleEdit = () => {
+    onEdit(editedDeptData);
+    onCancel(); // Close the popup when Save is clicked
+  };
+
+  const handleCancel = () => {
+    onCancel(); // Close the popup when Cancel is clicked
+  };
+
   return (
-    <div className="fixed left-0 top-0 z-[1] w-[100%] h-[100%] flex items-center justify-center bg-[rgba(0,0,0,0.4)]">   
-    <div className="rounded-[10px] p-[2rem] bg-white w-[50rem]">
-      <form action=""> 
-        <div className="flex flex-col text-center gap-5"> 
-         Edit Department Details
-          <div className="flex flex-col text-left">
-            <label className="font-normal text-[20px] " htmlFor="SI.no">SI.no</label> 
-            <input placeholder="Enter Si .no" className="font-serif font-normal text-[20px] p-2 border border-black" name='SI.no' type="text" />
-          </div> 
-          
-          <div className="flex flex-col text-left">
-            <label className="font-normal text-[20px] " htmlFor="Department">Department</label> 
-            <select className="font-serif font-normal text-[20px] p-2 border border-black" name='SI.no' type="text">
-              <option value="CSE">CSE</option>
-              <option value="ME">ME</option> 
-              <option value="CE">CE</option>  
-              <option value="EC">EC</option> 
-              <option value="EEE">EEE</option>  
-            </select>
+    <div className="fixed inset-0 flex items-center justify-center z-10">
+      <div className="absolute inset-0 bg-gray-800 opacity-75" onClick={handleCancel}></div>
+      <div className="z-20 bg-white p-8 rounded shadow-lg w-96">
+        <h2 className="text-2xl font-semibold mb-4">Edit Department</h2>
+        <form>
+          <div className="mb-4">
+            <label htmlFor="department" className="block text-sm font-medium text-gray-600">
+              Department:
+            </label>
+            <input
+              type="text"
+              id="department"
+              name="department"
+              value={editedDeptData.department}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full"
+            />
           </div>
-          
-          <div className="flex flex-col text-left">
-            <label className="font-normal text-[20px] " htmlFor="HOD">HOD</label> 
-            <input placeholder="Enter" className="font-serif font-normal text-[20px] p-2 border border-black" name='Email' type="text" />
-          </div> 
-          <div className="flex text-center justify-center rounded-lg">
-          <button className="  w-[100px] h-[50px] text-white bg-blue-500 flex rounded-lg items-center justify-center">
-          Submit
-        </button>
+          <div className="mb-4">
+            <label htmlFor="hod" className="block text-sm font-medium text-gray-600">
+              HOD:
+            </label>
+            <input
+              type="text"
+              id="hod"
+              name="hod"
+              value={editedDeptData.hod}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border rounded w-full"
+            />
           </div>
-        </div>
-        
-      </form>
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={handleEdit}
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="ml-2 px-4 py-2 border border-gray-300 rounded text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default AdminEditDept
+export default AdminEditDept;
